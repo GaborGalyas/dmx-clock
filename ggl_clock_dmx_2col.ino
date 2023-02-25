@@ -1,11 +1,16 @@
-#include <FastLED.h>
-#include <Conceptinetics.h>
+//This code is written for an arduino mini with wired dmx input. 
+//This will need tinkering, you need to connect the arduino to the modules and implement the dmx receiving circuit.
+//I will work on making a pcb design for a drop in replacement for the wemos d1 mini.
+
+
+#include <FastLED.h>                     //You need to have this library installed
+#include <Conceptinetics.h>              //You need to have this library installed
 #define DMX_SLAVE_CHANNELS   8 
 DMX_Slave dmx_slave ( DMX_SLAVE_CHANNELS );
-int startaddress = 501;
+int startaddress = 501;                  //For now, here is the fixed DMX address, still working on RDM support
 
 #define NUM_LEDS 84
-#define DATA_PIN 3
+#define DATA_PIN 3                      //Data pin connected to panels
 CRGB leds[NUM_LEDS];
 
 unsigned long lastpacket = 1000;
@@ -34,7 +39,7 @@ byte digits[10][21] = {
 void setup() {
   FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);  // GRB ordering is assumed 
     FastLED.setBrightness(255);
-  FastLED.setMaxPowerInMilliWatts(5000);
+  FastLED.setMaxPowerInMilliWatts(5000);               //Maximum power for the display
     dmx_slave.enable ();  
     dmx_slave.setStartAddress (startaddress);
    thchase();
@@ -59,9 +64,9 @@ void PrintNumber(byte number, int offset){
   for(int i=0; i<21; i++){
     if( digits[number][i] )
     if ( offset >= 40){
-      leds[i+offset].setRGB(dmxcol[3],dmxcol[4],dmxcol[5]);  //Switch the LED on
+      leds[i+offset].setRGB(dmxcol[3],dmxcol[4],dmxcol[5]);  
     }else{
-      leds[i+offset].setRGB(dmxcol[0],dmxcol[1],dmxcol[2]);  //Switch the LED on
+      leds[i+offset].setRGB(dmxcol[0],dmxcol[1],dmxcol[2]);  
     }
       
     else
