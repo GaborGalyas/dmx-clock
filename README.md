@@ -7,7 +7,7 @@ Printed Circuit Board file created with EAGLE 6.5.0
 Schematic file created with EAGLE 6.5.0
 ## 2pix_top_bom and 2pix_top_cpl 
 Bill Of Material and component files what you can upload to a PCB manufacturing site to have your boards assembled
-##GGL-CLOCK-FRAME.stl
+## GGL-CLOCK-FRAME.stl
 A 3D printable frame for 2 modules. You need to round the corners of the pcb-s to fit in the corners of the frame. Add a plexiglass to the front with a sheet of frost paper or parchment paper / baking paper between the two. Use M3 bolts from the front to fix the plexi/frost/frame/pcb sandwich together.
 ## clock_gerbers.zip
 Upload this file to a pcb manufacturer site like JLCPCB to have xour boards made.
