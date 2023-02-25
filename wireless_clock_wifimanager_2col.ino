@@ -1,3 +1,9 @@
+//This version is for a wemos D1 mini. After assembling the pcb-s solder the wemos d1 mini to the first module, and upload code
+//For configuration short the D7 pin to ground on boot, and the wifi manager will load.
+//You will be presented with a wireless hotspot named "GGL ARTNET CLOCK CONFIG ME". After connecting, you can configure the wifi network that has Art-Net data
+//coming from the lighting network, and set the dmx address too. Once saved, on every boot the clock will try to connect to the network you provided.
+
+// Install all these libraries...
 #include <FastLED.h>
 #include <WiFiUdp.h>
 #include <ESP8266WiFi.h>
